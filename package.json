@@ -10,6 +10,8 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
+  },"engines": {
+    "node": "14.16.1"
   },
   "author": "kenneth",
   "license": "ISC",
