@@ -727,8 +727,8 @@ select:focus {
       line-height: 36px;
       font-weight: 400;
       margin-bottom: 31px; }
-    .hero-area .left-content .content .links .link1 {
-      margin-right: 20px; }
+    /* .hero-area .left-content .content .links .link1 {
+      margin-right: 20px; } */
     .hero-area .left-content .content .links .link2 {
       background: #fff;
       color: #1e375a;

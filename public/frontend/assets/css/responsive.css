@@ -62,8 +62,8 @@
   outline: 0px;
 }
 .header{
-  background: #691365;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  background: #2364d2;
+  box-shadow: transparent;
 }
 #main_menu ul{
   padding: 20px 0px 20px;
