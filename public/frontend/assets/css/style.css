@@ -732,7 +732,6 @@ select:focus {
     .hero-area .left-content .content .links .link2 {
       background: #fff;
       color: #1e375a;
-      margin-right: 20px;
       -webkit-transition: all 0.3s ease-in;
       -o-transition: all 0.3s ease-in;
       transition: all 0.3s ease-in; }
