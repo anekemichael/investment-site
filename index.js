@@ -5,6 +5,9 @@ const session = require('express-session')
 const route = require('./route')
 const path = require("path")
 var favicon = require('serve-favicon')
+const myApp = require('./firebase/init')
+const { getAnalytics } = require('firebase/analytics')
+//const analytics = getAnalytics(myApp)
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -22,4 +25,5 @@ app.use('/', route)
 app.set('view engine', 'ejs')
 
 app.listen(port)
+console.log("my app: $s", myApp);
 console.log("Node server is runing in $s", port)

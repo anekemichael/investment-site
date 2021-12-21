@@ -389,7 +389,7 @@ select:focus {
   z-index: 99;
   /* Top Header Area Start */ }
   .header.nav-fixed {
-    background: #691365;
+    background: #0779e4;
     -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); }
     .header.nav-fixed .top-header {
@@ -674,7 +674,7 @@ select:focus {
 .hero-area {
   position: relative;
   padding: 256px 0px 150px;
-  background: url(../images/herobg.png);
+  background: url(../images/bc-bg-2.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -732,6 +732,7 @@ select:focus {
     .hero-area .left-content .content .links .link2 {
       background: #fff;
       color: #1e375a;
+      margin-right: 20px;
       -webkit-transition: all 0.3s ease-in;
       -o-transition: all 0.3s ease-in;
       transition: all 0.3s ease-in; }
@@ -2686,7 +2687,7 @@ select:focus {
         display: inline-block;
         border: 0px;
         border-radius: 50px;
-        background: #1e375a;
+        background: #0e97d6;
         color: #fff;
         font-size: 24px;
         -webkit-transition: all 0.3s ease-in;
