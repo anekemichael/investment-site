@@ -10,7 +10,8 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
-  },"engines": {
+  },
+  "engines": {
     "node": "14.16.1"
   },
   "author": "kenneth",
@@ -20,7 +21,8 @@
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-session": "^1.17.1"
+    "express-session": "^1.17.1",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
