@@ -1,0 +1,27 @@
+body{
+    background-color: #eeeaea !important;
+}
+
+.header{
+    background-color: #cecaca !important;
+}
+
+.deznav{
+    background-color: #cecaca !important;
+}
+
+.nav-header{
+    background-color: #cecaca !important;
+}
+
+.metismenu li a{
+    color: indigo !important;
+}
+
+.metismenu li i{
+    color: indigo !important;
+}
+
+.text-indigo{
+    color: indigo;
+}
