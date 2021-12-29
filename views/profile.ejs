@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard V.1 | Nalika - Material Admin Template</title>
+    <title> GreeniumTrades | Profile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -81,7 +78,7 @@
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<h2 id="username"><span class="min-dtn"></span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
@@ -313,7 +310,7 @@
                                             		</div>
 											<div class="breadcomb-ctn">
 												<h2>Profile</h2>
-												<p>Welcome to Lakian Das</p>
+												<p>Welcome <strong id="username-top"></strong></p>
 											</div>
 										</div>
                                     </div>
@@ -340,13 +337,13 @@
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">Camp David</span>
+                                            <span class="pull-right" id="fullname"></span>
                                             FullName
                                         </a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">campdavid@gmail.com</span>
+                                            <span class="pull-right" id="email"></span>
 
                                             Email</a>
                                     </li>
@@ -358,19 +355,19 @@
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">no 23 geogre street ohio</span>
+                                            <span class="pull-right">None Provided</span>
 
                                             Address</a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">+2341111110011</span>
+                                            <span class="pull-right">None Provided</span>
 
                                             Phone Number</a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">male</span>
+                                            <span class="pull-right">None Provided</span>
 
                                             Gender</a>
                                     </li>
@@ -489,6 +486,8 @@
     <!-- main JS
 		============================================ -->
     <script src="dashboard/js/main.js"></script>
+    <script src="backend/js/dashboard.js"></script>
+
 </body>
 
 </html>

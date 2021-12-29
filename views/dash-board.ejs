@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard V.1 | Nalika - Material Admin Template</title>
+    <title> GreeniumTrades | Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -81,7 +78,7 @@
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<h2 id="username"><span class="min-dtn"></span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
@@ -314,7 +311,7 @@
                                             		</div>
 											<div class="breadcomb-ctn">
 												<h2>Dashboard</h2>
-												<p>Welcome Lakian Das</p>
+												<p>Welcome <strong id="username-top"></strong></p>
 											</div>
 										</div>
                                     </div>
@@ -334,14 +331,14 @@
                                 <h4 class="text-left text-uppercase"><b>BitCoin Wallet</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="col-xs-3 mar-bot-15 text-left">
-                                        <label class="label bg-green">30% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-green">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
                                         <h2 class="text-right no-margin">$0</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 78%;" class="progress-bar bg-green"></div>
+                                    <div style="width: 0%;" class="progress-bar bg-green"></div>
                                 </div>
                             </div>
                         </div>
@@ -350,14 +347,14 @@
                                 <h4 class="text-left text-uppercase"><b>Etereum Wallet</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-red">15% <i class="fa fa-level-down" aria-hidden="true"></i></label>
+                                        <label class="label bg-red">0% <i class="fa fa-level-down" aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
                                         <h2 class="text-right no-margin">$0</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 38%;" class="progress-bar progress-bar-danger bg-red"></div>
+                                    <div style="width: 0%;" class="progress-bar progress-bar-danger bg-red"></div>
                                 </div>
                             </div>
                         </div>
@@ -366,14 +363,14 @@
                                 <h4 class="text-left text-uppercase"><b>Usdt</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-blue">50% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-blue">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
                                         <h2 class="text-right no-margin">$0</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 60%;" class="progress-bar bg-blue"></div>
+                                    <div style="width: 0%;" class="progress-bar bg-blue"></div>
                                 </div>
                             </div>
                         </div>
@@ -382,14 +379,14 @@
                                 <h4 class="text-left text-uppercase"><b>BNB Wallet</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-purple">80% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-purple">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">$</h2>
+                                        <h2 class="text-right no-margin">$0</h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 60%;" class="progress-bar bg-purple"></div>
+                                    <div style="width: 0%;" class="progress-bar bg-purple"></div>
                                 </div>
                             </div>
                         </div>
@@ -410,17 +407,17 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="white-box analytics-info-cs mg-b-30 res-mg-t-30">
                             <h3 class="box-title">Basic Plan</h3>
-                            <button class="btn btn-success btn-sm" disabled>Active</button>
+                            <button class="btn btn-success btn-sm"><a href="/invest" class="stat-item">Invest</a></button>
 
                         </div>
                         <div class="white-box analytics-info-cs mg-b-30">
                             <h3 class="box-title">Standard Plan</h3>
-                            <button class="btn btn-success btn-sm">Invest</button>
+                            <button class="btn btn-success btn-sm"><a href="/invest" class="stat-item">Invest</a></button>
 
                         </div>
                         <div class="white-box analytics-info-cs mg-b-30">
                             <h3 class="box-title">Unlimited Plan</h3>
-                            <button class="btn btn-success btn-sm">Invest</button>
+                            <button class="btn btn-success btn-sm"><a href="/invest" class="stat-item">Invest</a></button>
                         </div>
                     </div>
                 </div>
@@ -555,6 +552,7 @@
     <!-- main JS
 		============================================ -->
     <script src="dashboard/js/main.js"></script>
+    <script src="backend/js/dashboard.js"></script>
 </body>
 
 </html>
