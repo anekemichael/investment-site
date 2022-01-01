@@ -56,6 +56,8 @@
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="dashboard/css/responsive.css">
+    <link rel="stylesheet" href="dashboard/css/mystyles.css">
+
 
     <link rel="stylesheet" href="frontend/assets/css/plugin.css">
 
@@ -322,170 +324,94 @@
                 </div>
             </div>
         </div>
-        <div class="section-admin container-fluid">
-            <div class="row admin text-center">
-                <div class="col-md-12">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>BitCoin Wallet</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="col-xs-3 mar-bot-15 text-left">
-                                        <label class="label bg-green">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
-                                    </div>
-                                    <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin" id="btc_bal">$0</h2>
-                                    </div>
-                                </div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 0%;" class="progress-bar bg-green"></div>
-                                </div>
-                            </div>
+                        <div class="col-lg-12">
+                            <h3 class="text-center">Deposit Invoice - <b id="invoice-number"></b> </h3>  
+                            <hr>   
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1px;">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                <h4 class="text-left text-uppercase"><b>Etereum Wallet</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-red">0% <i class="fa fa-level-down" aria-hidden="true"></i></label>
-                                    </div>
-                                    <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin" id="eth_bal">$0</h2>
-                                    </div>
-                                </div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 0%;" class="progress-bar progress-bar-danger bg-red"></div>
-                                </div>
-                            </div>
+                        <div class="col-lg-12">
+                            <p class="text-center"> 
+                                <small>
+                                    <span style="font-size: 30px;">
+                                        <strong>Amount:</strong>
+                                    </span>
+                                </small> 
+                                <br> 
+                                <strong class="h3" id="amount">  | <span>BTC 23.7</span> </strong> 
+                            </p>
+                            <hr>   
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                <h4 class="text-left text-uppercase"><b>Usdt</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-blue">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
-                                    </div>
-                                    <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin" id="usdt_bal">$0</h2>
-                                    </div>
-                                </div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 0%;" class="progress-bar bg-blue"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                <h4 class="text-left text-uppercase"><b>BNB Wallet</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-purple">0% <i class="fa fa-level-up" aria-hidden="true"></i></label>
-                                    </div>
-                                    <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin" id="bnb_bal">$0</h2>
-                                    </div>
-                                </div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 0%;" class="progress-bar bg-purple"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <p></p>
-        </div>
-        
-        <div class="product-sales-area mg-tb-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                        
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="white-box analytics-info-cs mg-b-30 res-mg-t-30">
-                            <h3 class="box-title">Basic Plan</h3>
-                            <button class="btn btn-success btn-sm"><a href="/invest" class="stat-item" id="starter">Invest</a></button>
-                        </div>
-                        <div class="white-box analytics-info-cs mg-b-30">
-                            <h3 class="box-title">Standard Plan</h3>
-                            <button class="btn btn-success btn-sm"><a href="/invest"   id="standard" class="stat-item">Invest</a></button>
-                        </div>
-                        <div class="white-box analytics-info-cs mg-b-30">
-                            <h3 class="box-title">Unlimited Plan</h3>
-                            <button class="btn btn-success btn-sm" ><a href="/invest" id="unlimited" class="stat-item">Invest</a></button>
-                        </div>
-                        <div class="white-box analytics-info-cs mg-b-30">
-                            <h3 class="box-title">Contract Plan</h3>
-                            <button class="btn btn-success btn-sm" ><a href="/invest" id="contract" class="stat-item">Invest</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-  
-        <div class="traffic-analysis-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="white-box tranffic-als-inner">
-                            <h5 class="stat-item">Recent Investment</h5>
-                            <div>
+                        <div class="col-lg-12">
+                            <div class="p-2">
+                                <h4 class="text-center">
+                                    <strong>
+                                        <span>=====PAY TO OUR WALLETS ======</span>
+                                    </strong>
+                                </h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 text-center mb-3">
+                                        <p class="mb-2"><b>BTC Wallet To Pay To:</b></p>
+                                        <span style="padding: 5px 2px; border: 2px solid #8704a8; font-size: 17px">389Vq7YVpGmAVFyhBfhcaCT5QZ2rrroKCs</span>
+                                    </div>   
+                                </div>           
+                                <p></p>                          
+                                <h3 class="text-center">
+                                    <span id="amount-span"></span>
+                                    <br>
+                                    <p></p>
+                                    <img id="bar-code" src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:389Vq7YVpGmAVFyhBfhcaCT5QZ2rrroKCs?amount=100.00000000"> 
+                                </h3>
                                 <div>
-                                    <table class="table shadow-hover card-table" id="recent_investment">
-                                        <thead>
-                                            <tr class="stat-item">
-                                                <th class="text-center">S/N</th>
-                                                <th class="text-center">Action Performed</th>
-                                                <th class="text-center">Plan</th>
-                                                <th class="text-center">Amount($)</th>
-                                                <th class="text-center">Day Counter</th>
-                                                <th class="text-center">Coin Value</th>
-                                                <th class="text-center">Coin Type</th>
-                                                <th class="text-center">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="stat-item">
-                                                <tr>
-                                                    <td colspan="5" class="dataTables_empty" valign="top" id="empty_table">No data available in table</td>
-                                                </tr>
-                                                                                    
-                                        </tbody>
-                                    </table>
+                                                                                <h3 class="text-center">Do not make payment to anyone or any BTC wallet address that isn't the one provided above on your dashboard.</h3>
+                                <p>&nbsp;</p>
                                 </div>
+                                
+                                
+                                <h4 class="text-center">
+                                    <strong>====== How to pay with BTC =====</strong>
+                                </h4>
+                                <ol>
+                                    <li class="text-white"><strong>Get a Wallet:</strong>&nbsp;First you'll need a BTC wallet – an app that lets you receive, hold, and spend BTC.</li>
+                                    
+                                    <li class="text-white"><strong>Make a payment</strong>:&nbsp;Making a blockchain payment is fast, convenient, and extremely secure.&nbsp;</li>
+                                </ol>
+                                
+                                <ul>
+                                    <li class="text-white"><strong>Our payment system is automated it takes only 2 confirmation for your deposit to appear on your dashboard</strong></li>
+                                    <li class="text-white"><strong>In cases if network problem or other related issues, Our team of experts will review and credit you accordingly&nbsp;</strong></li>
+                                </ul>
+                          
+                            </div>
+                            <hr>  
                         </div>
+                        <div class="col-lg-12">
+                            <h4 class="text-center">
+                                <strong>====== Upload Payment Proof =====</strong>
+                            </h4>
+                            <form action="https://exotrades.com/upload-payment-proof/fZ2MNYUM5f7cfd31f8f7afd8" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="MnAJEszNsg17tPhmARp8QRqImMobA096CZy6q9Of">                                        <div class="form-group">
+                                    <label for="payment_proof" class="text-white">Payment Proof</label>
+                                    <input type="file" class="form-control" name="payment_proof" id="payment_proof" required>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Upload Payment</button>
+                            </form>
+                            <hr>  
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="mt-3 pb-3 text-center">
+                                <strong> 
+                                    <small><img src="https://exotrades.com/backend/images/used/ac-7.png"> Status</small> 
+                                    <br>
+                                    <span class="h2 Pending">pending</span> 
+                                </strong>
+                                <hr>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="white-box tranffic-als-inner res-mg-t-30">
-                            <h5 class="stat-item">Recent Withdrawal</h5>
-                            <div>
-                                <div>
-                                    <table class="table shadow-hover card-table">
-                                        <thead>
-                                            <tr class="stat-item">
-                                                <th class="text-center">S/N</th>
-                                                <th class="text-center">Action Performed</th>
-                                                <th class="text-center">Plan</th>
-                                                <th class="text-center">Amount($)</th>
-                                                <th class="text-center">Coin Value</th>
-                                                <th class="text-center">Coin Type</th>
-                                                <th class="text-center">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="stat-item">
-                                                                                            <tr>
-                                                    <td colspan="5" class="dataTables_empty" valign="top">No data available in table</td>
-                                                </tr>
-                                                                                    
-                                        </tbody>
-                                    </table>
-                                </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -559,3 +485,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

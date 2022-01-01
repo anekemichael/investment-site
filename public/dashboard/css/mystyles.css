@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: #eeeaea !important;
 }
 
@@ -24,4 +24,12 @@ body{
 
 .text-indigo{
     color: indigo;
+} */
+
+.text-center{
+    color: white;
+}
+
+.text-white{
+    color: white;
 }

@@ -330,8 +330,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                                <form action="https://exotrades.com/create-payment-invoice" method="POST">
-                                    <input type="hidden" name="_token" value="Bj55SZgt9d4VYX8cRTc413chCvFJwR1bhMdR9uvA">                                <div class="row">
+                                <form id="invest-form">
+                                    <!-- <input type="hidden" name="_token" value="Bj55SZgt9d4VYX8cRTc413chCvFJwR1bhMdR9uvA">                                <div class="row"> -->
                                         <div class="col-lg-12">
                                             <h3 class="stat-item">Select Your Preffered Payment Channel</h3>
                                             <hr>     
@@ -380,7 +380,7 @@
                                                                     <h3 class="stat-item">
                                                                         STARTER PLAN
                                                                         <br>
-                                                                        <input name="plan_unique_id" type="radio" style="height: 20px; width: 20px" value="ynVy5M5K78365612129585fd">
+                                                                        <input name="plan_unique_id"  class="plan-select"   type="radio" style="height: 20px; width: 20px" value="starter">
                                                                     </h3>
                                                                 
                                                                     <p class="stat-item">Min Amount : <span class="item"> <b>(USD) 300</b></span></p>
@@ -404,7 +404,7 @@
                                                                     <h3 class="stat-item">
                                                                         PREMIUM PLAN
                                                                         <br>
-                                                                        <input name="plan_unique_id" type="radio" style="height: 20px; width: 20px" value="c2vaZYVP930325546f432b16">
+                                                                        <input name="plan_unique_id"   class="plan-select" type="radio" style="height: 20px; width: 20px" value="premium">
                                                                     </h3>
                                                                 
                                                                     <p class="stat-item">Min Amount : <span class="item"> <b>(USD) 5000</b></span></p>
@@ -427,7 +427,7 @@
                                                                     <h3 class="stat-item">
                                                                         UNLIMITED PLAN
                                                                         <br>
-                                                                        <input name="plan_unique_id" type="radio" style="height: 20px; width: 20px" value="RJCRxXWR71d8e493a7a98eba">
+                                                                        <input name="plan_unique_id"  class="plan-select" type="radio" style="height: 20px; width: 20px" value="unlimited">
                                                                     </h3>
                                                                 
                                                                     <p class="stat-item">Min Amount : <span class="item"> <b>(USD) 10000</b></span></p>
@@ -450,7 +450,7 @@
                                                                     <h3 class="stat-item">
                                                                         CONTRACT PLAN
                                                                         <br>
-                                                                        <input name="plan_unique_id" type="radio" style="height: 20px; width: 20px" value="QQUayt5fb72fd1d85ca66df8">
+                                                                        <input name="plan_unique_id" class="plan-select" type="radio" style="height: 20px; width: 20px" value="contract">
                                                                     </h3>
                                                                 
                                                                     <p class="stat-item">Min Amount : <span class="item"> <b>(USD) 50100</b></span></p>
@@ -547,6 +547,8 @@
 		============================================ -->
     <script src="dashboard/js/main.js"></script>
     <script src="backend/js/dashboard.js"></script>
+    <script src="backend/js/invest.js"></script>
+
 
 </body>
 

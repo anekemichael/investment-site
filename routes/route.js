@@ -5,24 +5,8 @@ var httpMsgs = require('http-msgs')
 const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = require('firebase/auth')
 const auth = getAuth()
 const db = require('../firebase/firestore')
-var userModel = {
-    uid: "",
-    fullName: "",
-    gender: "",
-    address: "",
-    referralCode: "",
-    country: "",
-    emailAddress: "",
-    isEmailVerified: false,
-    password: "",
-    bankName: "",
-    accountName: "",
-    accountName: "",
-    btcWallet: "",
-    etherumWallet: "",
-    usdt: "",
-    bnbWallet: "",
-}
+const UserModel = require('../model/user')
+const Investment = require('../model/investment')
 
 
 
@@ -65,8 +49,8 @@ router.post('/login', function (req, res){
     signInWithEmailAndPassword(auth, req.body.email, req.body.password)
     .then((userCredential) => {
         const user = userCredential.user
-        console.log(user);
         //send login email
+        res.cookie("userData", user.uid)
         httpMsgs.sendJSON(req, res, {result: "registered successfully"})
     })
 
@@ -86,7 +70,6 @@ router.get('/register', function (req, res){
 router.post('/register', function (req, res){
     var email = req.body.email
     var password = req.body.password
-    var password_confirm = req.body.password_confirmation
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -95,27 +78,28 @@ router.post('/register', function (req, res){
             //send email verification
             //sendVerificationLink(res)
             //save user to firestore
-            var userModel = {
-                uid: user.uid,
-                fullName: req.body.name,
-                gender: "",
-                address: "",
-                referralCode: "",
-                country: "",
-                emailAddress: user.email,
-                isEmailVerified: user.emailVerified,
-                password: req.body.password,
-                bankName: "",
-                accountName: "",
-                accountName: "",
-                btcWallet: "",
-                etherumWallet: "",
-                usdt: "",
-                bnbWallet: "",
-            }
-            db.addUserToFireStore(user.uid, userModel)
+            var userModel = new UserModel(
+                user.uid,
+                "",
+                req.body.name,
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                email,
+                user.emailVerified,
+                password,
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                "None Provided",
+                "None Provided"
+            )
+            db.addUserToFireStore(user.uid, userModel.toMap())
             //add user to cookie.
-            res.cookie("userData", userModel)
+            res.cookie("userData", user.uid)
             httpMsgs.sendJSON(req, res, {result: "registered successfully"})
         })
 
@@ -189,8 +173,88 @@ router.get('/referral-withdrawal', function(req, res){
 })
 
 router.get('/getUser', function(req, res){
-    db.getUserFromFireStore(req.cookies.userData.uid, req, res)
+    db.getUserFromFireStore(req.cookies.userData, req, res)
 })
+
+router.get('/userInvestment', function(req, res){
+    //get investmentId from firestore
+    db.getUserDataOnce(req.cookies.userData, req, res)
+})
+
+
+router.post('/createInvestment', function(req, res){
+    var generateInvoice = (Math.floor(Math.random() * 100) + Date.now())
+    var data = {
+            investmentAmount: req.body.amount,
+            investmentStatus: false,
+            investmentPlan: req.body.plan,
+            investmentInvoice: generateInvoice,
+            investedDate: setTimeDate(),
+            withdrawalDate: withdrawalDate(),
+            btcBalance: req.body.amount,
+            bnbBalance: 0,
+            usdtBalance: 0,
+            etherumBalance: 0
+    }
+
+    var invest = new Investment(
+        req.body.amount,
+        false,
+        generateInvoice,
+        req.body.plan, 
+        setTimeDate(),
+        withdrawalDate(),
+        req.body.amount,
+        0,
+        0,
+        0,
+    )
+
+    var data = invest.recentInvestment(1, "investment", "starter", 500, 0, 0, 0, "pending")
+    db.createInvestmentPlan(req.cookies.userData, invest.toMap()).then(() => {
+        db.createRecentInvestmentCollection(req.cookies.userData, data).then(() => {
+            httpMsgs.sendJSON(req, res, {result: "registered successfully"})
+        })
+    })
+})
+
+
+router.get('/recentInvestments', function(req, res){
+    var data = db.getRecentInvestments(req.cookies.userData)
+    data.then((item) => {
+        httpMsgs.sendJSON(req, res, { result:  item })
+    })
+})
+
+router.get('/payment-invoice', function(req, res){
+    res.render('payment-invoice')
+})
+
+
+
+
+function setTimeDate(){
+    var dataObj = new Date()
+    var date = ("0" + dataObj.getDate()).slice(-2)
+    var month = ("0" + (dataObj.getMonth() + 1)).slice(-2)
+    var year = dataObj.getFullYear()
+    var hours = dataObj.getHours()
+    var minutes = dataObj.getMinutes()
+    var seconds = dataObj.getSeconds()
+    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
+}
+
+function withdrawalDate(){
+    var dataObj = new Date()
+    dataObj.setDate(dataObj.getDate() + 7)
+    var date = ("0" + dataObj.getDate()).slice(-2)
+    var month = ("0" + (dataObj.getMonth() + 1)).slice(-2)
+    var year = dataObj.getFullYear()
+    var hours = dataObj.getHours()
+    var minutes = dataObj.getMinutes()
+    var seconds = dataObj.getSeconds()
+    return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds)
+}
 
 
 
