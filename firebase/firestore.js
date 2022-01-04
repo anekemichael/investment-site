@@ -12,18 +12,6 @@ async function addUserToFireStore(uid, data){
    return await setDoc(doc(db, 'users', uid), data)
 }
 
-function updateUserToFireStore(uid, data){
-
-}
-
-async function getUserDataOnce(uid, req, res){
-    var docRef = doc(db, 'users', uid)
-    return await getDoc(docRef).then((ref) => {
-             if(ref.exists()){
-                 getInvestmentPlan(ref.data().investmentId, req, res)
-             }
-         })
-}
 
 async function getUserFromFireStore(uid, req, res){
 //    onSnapshot(doc(db, 'users', uid), (document) => {
@@ -37,13 +25,29 @@ async function getUserFromFireStore(uid, req, res){
     })
 }
 
+async function getUserInvesmentPlan(uid, req, res){
+    var docRef = doc(db, 'users', uid)
+    return await getDoc(docRef).then((ref) => {
+             if(ref.exists()){
+                 if(ref.data().investmentId != ""){
+                    getInvestmentPlan(ref.data().investmentId).then((data) => {
+                        if(data.exists()){
+                            httpMsgs.sendJSON(req, res, data.data())
+                        }
+                     })
+                 } else {
+                    httpMsgs.send500(req, res, "User Don't have investment Plan")
+                 }
+             }
+         })
+}
+
 function deleteUserFromFireStore(uid){
 
 }
 
-async function createInvestmentPlan(uid, data){
+async function createInvestmentPlan(uid, investmentId, data){
     var docRef = doc(db, 'users', uid)
-    var investmentId = uid + (Math.floor(Math.random() * 100)).toString()
     return await setDoc(doc(db, 'investment', investmentId), data).then((ref) => {
         updateDoc(docRef, {
         investmentId: investmentId
@@ -51,16 +55,22 @@ async function createInvestmentPlan(uid, data){
     })
 }
 
-async function getInvestmentPlan(uid, req, res){
+async function updateInvestmentPaln(uid, investmentProof){
+    var docRef = doc(db, 'users', uid)
+    getDoc(docRef).then(async (ref) => {
+      if(ref.exists()){
+        var docRef = doc(db, 'investment', ref.data().investmentId)
+        return await updateDoc(docRef, {investmentProof: investmentProof})
+      }
+    })
+}
+
+async function getInvestmentPlan(investmentId){
     // onSnapshot(doc(db, 'investment', uid), (document) => {
     //     httpMsgs.sendJSON(req, res, document.data())
     // })
-    var docRef = doc(db, 'investment', uid)
-    return await getDoc(docRef).then((ref) => {
-      if(ref.exists()){
-          httpMsgs.sendJSON(req, res, ref.data())
-      }
-  })
+    var docRef = doc(db, 'investment', investmentId)
+    return await getDoc(docRef)
 }
 
 async function createRecentInvestmentCollection(uid, data){
@@ -86,12 +96,12 @@ async function withdrawFunds(uid){
 
 module.exports = {
     addUserToFireStore: addUserToFireStore,
-    updateUserToFireStore: updateUserToFireStore,
     getUserFromFireStore: getUserFromFireStore,
     deleteUserFromFireStore: deleteUserFromFireStore,
     createInvestmentPlan: createInvestmentPlan,
     getInvestmentPlan: getInvestmentPlan,
-    getUserDataOnce: getUserDataOnce,
+    getUserInvesmentPlan: getUserInvesmentPlan,
     createRecentInvestmentCollection: createRecentInvestmentCollection,
-    getRecentInvestments: getRecentInvestments
+    getRecentInvestments: getRecentInvestments,
+    updateInvestmentPaln: updateInvestmentPaln
 }

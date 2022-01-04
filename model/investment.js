@@ -2,7 +2,7 @@ const fireStoreHelper = require('../firebase/firestore')
 
 class InvestmentModel {
     constructor(investmentAmount, investmentStatus, investmentInvoice, investmentPlan,
-    investedDate, withdrawalDate, btcBalance, bnbBalance, usdtBalance,
+    investedDate, withdrawalDate, investmentProof ,btcBalance, bnbBalance, usdtBalance,
     etherumBalance) {
         this.investmentAmount = investmentAmount
         this.investmentStatus = investmentStatus
@@ -10,6 +10,7 @@ class InvestmentModel {
         this.investmentPlan = investmentPlan
         this.investedDate = investedDate
         this.withdrawalDate = withdrawalDate
+        this.investmentProof = investmentProof
         this.btcBalance = btcBalance
         this.bnbBalance = bnbBalance
         this.usdtBalance = usdtBalance
@@ -25,6 +26,7 @@ class InvestmentModel {
             investmentPlan: this.investmentPlan,
             investedDate: this.investedDate,
             withdrawalDate: this.withdrawalDate,
+            investmentProof: this.investmentProof,
             btcBalance: this.btcBalance,
             bnbBalance: this.bnbBalance,
             usdtBalance: this.usdtBalance,

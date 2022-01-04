@@ -14,7 +14,6 @@ var app = express()
 const route = require('./routes/route')
 
 
-
 app.use(flash())
 app.use(cookieParser())
 app.use(session({ secret: 'email' }))
@@ -24,6 +23,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/', route)
 app.set('view engine', 'ejs')
 
-app.listen(port)
-console.log("my app: $s", myApp);
-console.log("Node server is runing in $s", port)
+app.listen(port, () => {
+   console.log("my app: $s", myApp);
+   console.log("Node server is runing in $s", port)
+})

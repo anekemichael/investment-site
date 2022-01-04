@@ -7,6 +7,15 @@ const auth = getAuth()
 const db = require('../firebase/firestore')
 const UserModel = require('../model/user')
 const Investment = require('../model/investment')
+const multer = require('multer');
+const cloudStorage = require('../firebase/cloud-storage')
+const mailer = require('../mailer/mailer')
+const e = require('connect-flash')
+var email;
+var password;
+var token;
+var fullname;
+
 
 
 
@@ -50,7 +59,12 @@ router.post('/login', function (req, res){
     .then((userCredential) => {
         const user = userCredential.user
         //send login email
-        res.cookie("userData", user.uid)
+        var cookieData = {
+            uid: user.uid,
+            email: user.email
+        }
+        res.cookie("userData", cookieData)
+        sendGeneralEmail(user.email, 'Login Successful')
         httpMsgs.sendJSON(req, res, {result: "registered successfully"})
     })
 
@@ -68,57 +82,31 @@ router.get('/register', function (req, res){
 })
 
 router.post('/register', function (req, res){
-    var email = req.body.email
-    var password = req.body.password
-
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            //signed in
-            const user = userCredential.user
-            //send email verification
-            //sendVerificationLink(res)
-            //save user to firestore
-            var userModel = new UserModel(
-                user.uid,
-                "",
-                req.body.name,
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                email,
-                user.emailVerified,
-                password,
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                "None Provided",
-                "None Provided"
-            )
-            db.addUserToFireStore(user.uid, userModel.toMap())
-            //add user to cookie.
-            res.cookie("userData", user.uid)
-            httpMsgs.sendJSON(req, res, {result: "registered successfully"})
-        })
-
-        .catch((error) => {
-            httpMsgs.send500(req, res, error.message)
-            const errorCode = error.code
-            const errorMessage = error.message
-    })
+    console.log(req.body);
+    email = req.body.email
+    password = req.body.password
+    fullname = req.body.name
+    httpMsgs.sendJSON(req, res, {result: "registered successfully"})
 })
 
-function sendVerificationLink(res){
-    const user = auth.currentUser
-    user.sendEmailVerification().then(function (){
-        httpMsgs.sendJSON(req, res, {result: "registered successfully"})
-    }) 
-}
 
 router.get('/email-verification', function(req, res){
+    const randomIds = '12ab34cd56efghijk79lmnopstuk0wxtvuwyxz'
+    token = randomToken(6, randomIds)
+    sendVerificationToken(email, token)
+    //siginInUser(email, password)
     res.render('email-verification')
+})
+
+router.post('/verifyUser', function(req, res){
+    console.log('token ' + token);
+    console.log('post_token ' + req.body.token);
+
+    if(req.body.token == token){
+        siginInUser(email, password, req, res)
+    } else {
+        httpMsgs.send500(req, res, 'Token dosent match. Click below to resend token')
+    }
 })
 
 
@@ -173,30 +161,17 @@ router.get('/referral-withdrawal', function(req, res){
 })
 
 router.get('/getUser', function(req, res){
-    db.getUserFromFireStore(req.cookies.userData, req, res)
+    db.getUserFromFireStore(req.cookies.userData.uid, req, res)
 })
 
 router.get('/userInvestment', function(req, res){
     //get investmentId from firestore
-    db.getUserDataOnce(req.cookies.userData, req, res)
+    db.getUserInvesmentPlan(req.cookies.userData.uid, req, res)
 })
 
 
 router.post('/createInvestment', function(req, res){
     var generateInvoice = (Math.floor(Math.random() * 100) + Date.now())
-    var data = {
-            investmentAmount: req.body.amount,
-            investmentStatus: false,
-            investmentPlan: req.body.plan,
-            investmentInvoice: generateInvoice,
-            investedDate: setTimeDate(),
-            withdrawalDate: withdrawalDate(),
-            btcBalance: req.body.amount,
-            bnbBalance: 0,
-            usdtBalance: 0,
-            etherumBalance: 0
-    }
-
     var invest = new Investment(
         req.body.amount,
         false,
@@ -204,15 +179,16 @@ router.post('/createInvestment', function(req, res){
         req.body.plan, 
         setTimeDate(),
         withdrawalDate(),
+        "",
         req.body.amount,
         0,
         0,
         0,
     )
-
     var data = invest.recentInvestment(1, "investment", "starter", 500, 0, 0, 0, "pending")
-    db.createInvestmentPlan(req.cookies.userData, invest.toMap()).then(() => {
-        db.createRecentInvestmentCollection(req.cookies.userData, data).then(() => {
+    var investmentId = (req.cookies.userData.uid + req.cookies.userData.email)
+    db.createInvestmentPlan(req.cookies.userData.uid, investmentId,invest.toMap()).then(() => {
+        db.createRecentInvestmentCollection(req.cookies.userData.uid, data).then(() => {
             httpMsgs.sendJSON(req, res, {result: "registered successfully"})
         })
     })
@@ -220,7 +196,7 @@ router.post('/createInvestment', function(req, res){
 
 
 router.get('/recentInvestments', function(req, res){
-    var data = db.getRecentInvestments(req.cookies.userData)
+    var data = db.getRecentInvestments(req.cookies.userData.uid)
     data.then((item) => {
         httpMsgs.sendJSON(req, res, { result:  item })
     })
@@ -230,8 +206,97 @@ router.get('/payment-invoice', function(req, res){
     res.render('payment-invoice')
 })
 
+router.post('/upload-proof', handleFileUpload().single('payment_proof'), function(req, res){
+    //upload to storage
+    cloudStorage.uploadFileToCloudStorage(req.file.path, req.file.originalname, req.cookies.userData.uid, req, res)
+})
 
 
+router.post('/withdrawal', function(req, res){
+    // var dataObj = new Date()
+    // var investmentData = db.getInvestmentPlan(req.)
+    // if(dataObj.getDay() == 5){
+      
+    // }
+    // console.log(req.body);
+    // console.log(dataObj.getDay());
+})
+
+function randomToken(len, arr) {
+    var ans = '';
+    for (var i = len; i > 0; i--) {
+        ans += 
+          arr[Math.floor(Math.random() * arr.length)];
+    }
+    return ans;
+}
+
+
+function sendVerificationToken(user, token){
+   var nodeTransport = mailer.createNodeMailerTransport('gmail', 'campdaniel06@gmail.com', 'password_campdaniel06')
+   mailer.sendEmail('campdaniel06@gmail.com', user, 'This is your verification code. Keep it secret', token, nodeTransport)
+}
+
+function sendGeneralEmail(user, action){
+    var nodeTransport = mailer.createNodeMailerTransport('gmail', 'campdaniel06@gmail.com', 'password_campdaniel06')
+    mailer.sendEmail('campdaniel06@gmail.com', user, 'Login Alert', action, nodeTransport)
+}
+
+function siginInUser(email, password, req, res){
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        //signed in
+        const user = userCredential.user
+        //save user to firestore
+        var userModel = new UserModel(
+            user.uid,
+            "",
+            fullname,
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            email,
+            true,
+            password,
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            "None Provided",
+            "None Provided"
+        )
+        db.addUserToFireStore(user.uid, userModel.toMap())
+        //add user to cookie.
+        var cookieData = {
+            uid: user.uid,
+            email: user.email
+        }
+        res.cookie("userData", cookieData)
+        httpMsgs.sendJSON(req, res, {result: "registered successfully"})
+    })
+
+    .catch((error) => {
+        httpMsgs.send500(req, res, error.message)
+        const errorCode = error.code
+        const errorMessage = error.message
+    })
+}
+
+function handleFileUpload(){
+    var storage = multer.diskStorage({
+        destination: function(req, file, cb){
+            cb(null, './uploads')
+        },
+        filename: function(req, file, cb){
+            fileName = file.originalname
+            cb(null, fileName)
+        }
+    })
+    var upload = multer({storage: storage})
+    return upload
+}
 
 function setTimeDate(){
     var dataObj = new Date()
@@ -246,7 +311,7 @@ function setTimeDate(){
 
 function withdrawalDate(){
     var dataObj = new Date()
-    dataObj.setDate(dataObj.getDate() + 7)
+    dataObj.setDate(dataObj.getDate() + 90)
     var date = ("0" + dataObj.getDate()).slice(-2)
     var month = ("0" + (dataObj.getMonth() + 1)).slice(-2)
     var year = dataObj.getFullYear()

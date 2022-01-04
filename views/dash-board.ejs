@@ -56,6 +56,7 @@
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="dashboard/css/responsive.css">
+    <link rel="stylesheet" href="dashboard/css/mystyles.css">
 
     <link rel="stylesheet" href="frontend/assets/css/plugin.css">
 
@@ -134,10 +135,11 @@
 
                         <li>
                             <li class="active">
-                                <a href="/logout">
-                                    <i class="fas fa-sign-out-alt"></i>                                       <span class="mini-click-non">LogOut</span>
+                                <a  href="javascript:void(0);"  data-target="#logoutModal" data-toggle="modal">
+                                    <i class="fas fa-sign-out-alt"></i><span class="mini-click-non">LogOut</span>
                                     </a>
-                            </li>                        </li>
+                            </li> 
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -289,7 +291,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#formsmob" href="/logout">LogOut <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="modal" data-target="#logoutModal" href="javascript:void(0);">LogOut <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -398,7 +400,43 @@
             <p></p>
         </div>
         
-        <div class="product-sales-area mg-tb-30">
+        <div class="section-admin container-fluid">
+            <div class="row admin text-center">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                <h3 class="text-white">Starter Plan</h3>
+                            <button class="btn btn-success btn-sm"><a href="/invest" class="stat-item" id="starter">Invest</a></button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom:1px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
+                                <h3 class="box-title">Standard Plan</h3>
+                                <button class="btn btn-success btn-sm"><a href="/invest"   id="standard" class="stat-item">Invest</a></button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
+                                <h3 class="box-title">Unlimited Plan</h3>
+                            <button class="btn btn-success btn-sm" ><a href="/invest" id="unlimited" class="stat-item">Invest</a></button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
+                                <h3 class="box-title">Contract Plan</h3>
+                            <button class="btn btn-success btn-sm" ><a href="/invest" id="unlimited" class="stat-item">Invest</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p></p>
+        </div>
+        
+        <!-- <div class="product-sales-area mg-tb-30">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -424,72 +462,148 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
   
         <div class="traffic-analysis-area">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12">
                         <div class="white-box tranffic-als-inner">
-                            <h5 class="stat-item">Recent Investment</h5>
-                            <div>
-                                <div>
-                                    <table class="table shadow-hover card-table" id="recent_investment">
-                                        <thead>
-                                            <tr class="stat-item">
-                                                <th class="text-center">S/N</th>
-                                                <th class="text-center">Action Performed</th>
-                                                <th class="text-center">Plan</th>
-                                                <th class="text-center">Amount($)</th>
-                                                <th class="text-center">Day Counter</th>
-                                                <th class="text-center">Coin Value</th>
-                                                <th class="text-center">Coin Type</th>
-                                                <th class="text-center">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="stat-item">
-                                                <tr>
-                                                    <td colspan="5" class="dataTables_empty" valign="top" id="empty_table">No data available in table</td>
-                                                </tr>
-                                                                                    
-                                        </tbody>
-                                    </table>
+                            
+                            <div class="content-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="stat-item">Recent Investment History</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="" class="table table-responsive ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">S/N</th>
+                                                                    <th class="text-center">Action Performed</th>
+                                                                    <th class="text-center">Amount($)</th>
+                                                                    <th class="text-center">Calculated Amount($)</th>
+                                                                    <th class="text-center">Status</th>
+                                                                    <th class="text-center">Wallet Type</th>
+                                                                    <th class="text-center">Day Counter</th>
+                                                                    <th class="text-center">Created At</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                                                                <tr><td colspan="11" class="text-center">No Data Available at this Moment</td></tr>
+                                                                                                                                                 
+                                                            </tbody>                                       
+                                                        </table>
+                                                    </div>
+                                                    <div class="card-footer text-right">
+                                                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="white-box tranffic-als-inner res-mg-t-30">
-                            <h5 class="stat-item">Recent Withdrawal</h5>
-                            <div>
-                                <div>
-                                    <table class="table shadow-hover card-table">
-                                        <thead>
-                                            <tr class="stat-item">
-                                                <th class="text-center">S/N</th>
-                                                <th class="text-center">Action Performed</th>
-                                                <th class="text-center">Plan</th>
-                                                <th class="text-center">Amount($)</th>
-                                                <th class="text-center">Coin Value</th>
-                                                <th class="text-center">Coin Type</th>
-                                                <th class="text-center">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="stat-item">
-                                                                                            <tr>
-                                                    <td colspan="5" class="dataTables_empty" valign="top">No data available in table</td>
-                                                </tr>
-                                                                                    
-                                        </tbody>
-                                    </table>
-                                </div>
-                        </div>
-                    </div>
-                    
+                    <div>
+                        <p></p>
+                    </div>   
                 </div>
             </div>
         </div>
+
+        <div>
+            <p></p>
+        </div>
+
+        <div class="traffic-analysis-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="white-box tranffic-als-inner">
+                            <div class="content-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="stat-item">Investment Withdrawal History</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table id="" class="table table-responsive ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">S/N</th>
+                                                                    <th class="text-center">Action Performed</th>
+                                                                    <th class="text-center">Amount($)</th>
+                                                                    <th class="text-center">Calculated Amount($)</th>
+                                                                    <th class="text-center">Status</th>
+                                                                    <th class="text-center">Wallet Type</th>
+                                                                    <th class="text-center">Settlement Status</th>
+                                                                    <th class="text-center">Created At</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                                                                <tr><td colspan="11" class="text-center">No Data Available at this Moment</td></tr>
+                                                                                                                                                 
+                                                            </tbody>                                       
+                                                        </table>
+                                                    </div>
+                                                    <div class="card-footer text-right">
+                                                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p></p>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div>
+            <p></p>
+        </div>
                   
+
+        <div class="modal fade" id="logoutModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Logout Notification</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"> 
+                            <div class="col-lg-12">
+                                <h5 class="text-black">Do you really wish to logout from GreeniumTrades ?</h5>
+                            </div>
+                            <div class="col-lg-12 mt-2">
+                                <form id="logout-modal">
+                                    <!-- <input type="hidden" name="_token" value="VElmUHzfyiAN5xvj9YXGYON0rGI0Cef7zJho0Md4">                       -->
+                                          <button class="btn btn-primary" type="submit">Log Me Out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -556,6 +670,21 @@
 		============================================ -->
     <script src="dashboard/js/main.js"></script>
     <script src="backend/js/dashboard.js"></script>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/61d427d03d23fa26e870f1d8/1foibn1qn';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    
 </body>
 
 </html>

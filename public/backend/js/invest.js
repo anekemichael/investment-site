@@ -5,8 +5,7 @@ $(document).ready(function (){
                 plan = $(this).val()
             }
         })
-
-
+        
     $('#invest-form').submit(function (e){
         e.preventDefault()
         if(plan == ""){
@@ -39,4 +38,47 @@ $(document).ready(function (){
             })
         }
     })
+
+
+    $('#proof').submit(function (e){
+        e.preventDefault()
+            var form = document.querySelector('#proof')
+            var data = new FormData(form)
+            $.ajax({
+                url: '/upload-proof',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                success: function(req, res){
+                    document.location = '/dash-board'
+                },
+                error: function(err){
+                    alert(err.responseJSON.data)
+                }
+            })
+    })
+
+
+    $('#create-withdrawal-invoice').submit(function (e){
+        e.preventDefault()
+            var form = document.querySelector('#create-withdrawal-invoice')
+            var data = new FormData(form)
+            $.ajax({
+                url: '/withdrawal',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                success: function(req, res){
+                    //document.location = '/withdrawal-invoice'
+                },
+                error: function(err){
+                    alert(err.responseJSON.data)
+                }
+            })
+    })
+
 })

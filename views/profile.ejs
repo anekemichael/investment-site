@@ -134,7 +134,7 @@
 
                         <li>
                             <li class="active">
-                                <a href="/logout">
+                                <a  href="javascript:void(0);"  data-target="#logoutModal" data-toggle="modal">
                                     <i class="fas fa-sign-out-alt"></i>                                       <span class="mini-click-non">LogOut</span>
                                     </a>
                             </li>                        </li>
@@ -288,7 +288,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#formsmob" href="/logout">LogOut <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="modal" data-target="#logoutModal" href="javascript:void(0);">LogOut <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -420,7 +420,29 @@
                 </div>
             </div>
         </div>
-                  
+        <div class="modal fade" id="logoutModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Logout Notification</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"> 
+                            <div class="col-lg-12">
+                                <h5 class="text-black">Do you really wish to logout from GreeniumTrades ?</h5>
+                            </div>
+                            <div class="col-lg-12 mt-2">
+                                <form id="logout-modal">
+                                    <!-- <input type="hidden" name="_token" value="VElmUHzfyiAN5xvj9YXGYON0rGI0Cef7zJho0Md4">                       -->
+                                          <button class="btn btn-primary" type="submit">Log Me Out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -487,6 +509,20 @@
 		============================================ -->
     <script src="dashboard/js/main.js"></script>
     <script src="backend/js/dashboard.js"></script>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/61d427d03d23fa26e870f1d8/1foibn1qn';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 

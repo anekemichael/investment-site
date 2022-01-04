@@ -40,6 +40,8 @@ $.ajax({
 })
 
 
+
+
 function setData(data){
     $('#username').html(data.responseJSON.fullName)
     $('#username-top').html(data.responseJSON.fullName)
@@ -48,6 +50,8 @@ function setData(data){
 }
 
 function setUserInvestmentPlan(data){
+    var plan;
+    var investmentAmount = data.responseJSON.investmentAmount
     if(data.responseJSON.investmentStatus){
         $('#btc_bal').html("$" + data.responseJSON.btcBalance)
         $('#eth_bal').html("$" + data.responseJSON.etherumBalance)
@@ -56,15 +60,19 @@ function setUserInvestmentPlan(data){
         if(data.responseJSON.investmentPlan == 'starter'){
             $('#starter').html("active")
             $('#starter').prop('disabled', true)
+            plan = starter
         } else if(data.responseJSON.investmentPlan == 'standard'){
             $('#standard').html("active")
             $('#standard').prop('disabled', true)
+            plan = standard
         } else if(data.responseJSON.investmentPlan == 'unlimited'){
             $('#unlimited').html("active")
             $('#unlimited').prop('disabled', true)
+            plan = unlimited
         } else if(data.responseJSON.investmentPlan == 'contract'){
             $('#contract').html("active")
             $('#contract').prop('disabled', true)
+            plan = contract
         }
     }
     
@@ -75,6 +83,17 @@ function setUserInvestmentPlan(data){
     $('#bar-code').prop('src',
     'https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:389Vq7YVpGmAVFyhBfhcaCT5QZ2rrroKCs?amount=' + data.responseJSON.investmentAmount.toString() + '.00000000');
     
+    switch (plan){
+        case 'starter':
+            postUserInterestToDb(addUserInterestStarterPlan(investmentAmount))
+            break
+        case 'standard':
+            postUserInterestToDb(addUserInterestStandardPlan(investmentAmount))
+            break
+        case 'unlimited':
+            postUserInterestToDb(addUserInterestUnlimitedPlan(investmentAmount))
+            break
+    }
 }
 
 
@@ -96,3 +115,43 @@ function setUpInvestmentTable(data){
     });
 
 }
+
+function addUserInterestStarterPlan(amount){
+    var interest = amount * 0.0125
+    return interest
+}
+
+function addUserInterestStandardPlan(){
+    var interest = amount * 0.0135
+    return interest
+}
+
+function addUserInterestUnlimitedPlan(){
+    var interest = amount * 0.015
+    return interest
+}
+
+function addUserPercentageContractPlan(){
+
+}
+
+function postUserInterestToDb(data){
+    $.ajax({
+        url: '/addInterestToUser',
+        data: {
+            interest: data
+        },
+        contentType: false,
+        method: 'POST',
+        success: function(req, res, data){
+            //refersh page
+        },
+        error: function(err){
+            alert(err.responseJSON.data)
+        }
+    })
+}
+
+
+
+

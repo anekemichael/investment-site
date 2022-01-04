@@ -1,1 +1,545 @@
-<html></html>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>GreeniumTrades | Withdrawal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/font-awesome.min.css">
+	<!-- nalika Icon CSS
+		============================================ -->
+    <!-- <link rel="stylesheet" href="dashboard/css/nalika-icon.css"> -->
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/owl.carousel.css">
+    <link rel="stylesheet" href="dashboard/css/owl.theme.css">
+    <link rel="stylesheet" href="dashboard/css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="dashboard/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="dashboard/css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/dashboad-style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="dashboard/css/responsive.css">
+
+    <link rel="stylesheet" href="frontend/assets/css/plugin.css">
+    <link rel="stylesheet" href="dashboard/css/mystyles.css">
+
+    <!-- modernizr JS
+		============================================ -->
+    <script src="dashboard/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
+                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+            </div>
+			<div class="nalika-profile">
+				<div class="profile-dtl">
+					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
+					<h2 id="username"><span class="min-dtn"></span></h2>
+				</div>
+				<div class="profile-social-dtl">
+					<ul class="dtl-social">
+						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+					</ul>
+				</div>
+			</div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        <li class="active">
+                            <a href="/dash-board">
+								   <i class="fa fa-home"></i>
+								   <span class="mini-click-non">Dashboard</span>
+								</a>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="/profile" aria-expanded="false"><i class="far fa-user-circle"></i> <span class="mini-click-non">Profile</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Inbox" href="/profile"><span class="mini-sub-pro">View Profile</span></a></li>
+                                <li><a title="View Mail" href="/edit-profile"><span class="mini-sub-pro">Edit Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="/invest" aria-expanded="false"><i class="fas fa-pallet"></i> <span class="mini-click-non">Invest Section</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Google Map" href="/invest"><span class="mini-sub-pro">Invest</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="/withdrawal" aria-expanded="false"><i class="fas fa-file-invoice-dollar"></i> <span class="mini-click-non">Withdrawal</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="File Manager" href="/withdrawal"><span class="mini-sub-pro">Iniate Withdrawal</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="/reinvest" aria-expanded="false"><i class="fas fa-text-width"></i> <span class="mini-click-non">ReInvest</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Bar Charts" href="/reinvest"><span class="mini-sub-pro">Reinvest</span></a></li>
+                                <li><a title="Line Charts" href="/view-pending-history"><span class="mini-sub-pro">View Pending history</span></a></li>
+                                <li><a title="Area Charts" href="/view-confirmed-history"><span class="mini-sub-pro">View Confirmed history</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="/referral" aria-expanded="false"><i class="fab fa-sith"></i> <span class="mini-click-non">Referral</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="/referral"><span class="mini-sub-pro">Referral</span></a></li>
+                                <li><a title="Data Table" href="/referral-withdrawal"><span class="mini-sub-pro">Referral Withdrawal</span></a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <li class="active">
+                                <a  href="javascript:void(0);"  data-target="#logoutModal" data-toggle="modal">
+                                    <i class="fas fa-sign-out-alt"></i>                                       <span class="mini-click-non">LogOut</span>
+                                    </a>
+                            </li>                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="/dash-board"><img class="main-logo" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="fas fa-bars"></i>												</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n hd-search-rp">
+                                            <div class="breadcome-heading">
+												<form role="search" class="">
+													<input type="text" placeholder="Search..." class="form-control">
+													<a href=""><i class="fa fa-search"></i></a>
+												</form>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="far fa-envelope" aria-hidden="true"></i><span class="indicator-ms"></span></a>
+                                                    <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
+                                                        <div class="message-single-top">
+                                                            <h1>Message</h1>
+                                                        </div>
+                                                        <ul class="message-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/1.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Advanda Cro</h2>
+                                                                        <p>Please done this project as soon possible.</p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="message-view">
+                                                            <a href="#">View All Messages</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                                    <div role="menu" class="notification-author dropdown-menu animated zoomIn">
+                                                        <div class="notification-single-top">
+                                                            <h1>Notifications</h1>
+                                                        </div>
+                                                        <ul class="notification-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="icon nalika-tick" aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Advanda Cro</h2>
+                                                                        <p>Please done this project as soon possible.</p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>                                                      
+                                                        </ul>
+                                                        <div class="notification-view">
+                                                            <a href="#">View All Notification</a>
+                                                        </div>
+                                                    </div>
+                                                </li>      
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="/dash-board">Dashboard <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demo" href="/profile">Profile <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul id="demo" class="collapse dropdown-header-top">
+                                                <li><a href="/profile">View Profile</a>
+                                                </li>
+                                                <li><a href="/edit-profile">Edit Profile</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#others" href="/invest">Investment Section <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul id="others" class="collapse dropdown-header-top">
+                                                <li><a href="/invest">Invest</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="/withdrawal">Withdrawal <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                                <li><a href="/withdrawal">Initiate Withdrawal</a>
+                                                </li>
+                                            
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Chartsmob" href="/reinvest">Reinvest<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul id="Chartsmob" class="collapse dropdown-header-top">
+                                                <li><a href="/reinvest">Reinvest</a>
+                                                </li>
+                                                <li><a href="/view-pending-history">View Pending history</a>
+                                                </li>
+                                                <li><a href="/view-confirmed-history">View Confirmed history</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Tablesmob" href="/referral">Referral <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul id="Tablesmob" class="collapse dropdown-header-top">
+                                                <li><a href="/referral">Referral</a>
+                                                </li>
+                                                <li><a href="/referral-withdrawal">Referral Withdrawal</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="modal" data-target="#logoutModal" href="javascript:void(0);">LogOut <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+											<div class="breadcomb-icon">
+                                                <i class="fa fa-home"></i>									
+                                            		</div>
+											<div class="breadcomb-ctn">
+												<h2>Invest</h2>
+												<p>Welcome <strong id="username-top"></strong></p>
+											</div>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>&nbsp;</span>
+                                <span style="font-size: 20px; font-weight: bold" class="text-white">My Referrals <small class="text-white">(Total - 0)</small></span>
+                            </div>
+                            <div class="card-body">
+                                <table cellpadding="0" cellspacing="0" border="0" class="table ">
+                                    <tbody>
+                                        <tr align="center">
+                                            <td>
+                                                <div class="s-box">
+                                                    <img src="https://exotrades.com/backend/images/used/rip.png">
+                                                    <h4 class="text-white">Total Referrals</h4>
+                                                    <h3 class="text-white">0</h3>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="s-box">
+                                                    <img src="https://exotrades.com/backend/images/used/rip.png">
+                                                    <h4 class="text-white">Direct referrals</h4>
+                                                    <h3 class="text-white">0</h3>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="s-box">
+                                                    <img src="https://exotrades.com/backend/images/used/rip.png">
+                                                    <h4 class="text-white">Downline referrals</h4>
+                                                    <h3 class="text-white">0</h3>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="s-box">
+                                                    <img src="https://exotrades.com/backend/images/used/box-1.png">
+                                                    <h4 class="text-white">Bonus</h4>
+                                                    <h3 class="text-white">$ 0</h3>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="form-group">
+                                    <div class="input-group input-group-md">
+                                        <div class="input-group-prepend">
+                                            <span>&nbsp;</span>
+                                            <span class="text-white" style="font-size: 20px; font-weight: bold"> Referral Link: </span>
+                                            <span class="text-primary mb-0" style="font-size: 20px; font-weight: bold">https://greeniumtrades.com/?ref=PrDJSMqaeff897c03f57487e</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h3 class="text-center">==Direct Refferals==</h3>
+                                <div class="table-responsive">
+                                    <table id="" class="table  ">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">S/N</th>
+                                                <th class="text-center">Referral ID</th>
+                                                <th class="text-center">User Name</th>
+                                                <th class="text-center">User Email</th>
+                                                <th class="text-center">Date Joined</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                            <tr>
+                                                    <td colspan="5" class="text-white" valign="top">No data available in table</td>
+                                                </tr>
+                                                                                                                             
+                                        </tbody>                                       
+                                    </table>
+                                    <div class="card-footer text-right">
+                                                                
+                                    </div>
+                                </div>
+                                <hr>
+                                <h3 class="text-center">==Downline Refferals==</h3>
+                                <div class="table-responsive">
+                                    <table id="" class="table  ">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">S/N</th>
+                                                <th class="text-center">Referral ID</th>
+                                                <th class="text-center">User Name</th>
+                                                <th class="text-center">User Email</th>
+                                                <th class="text-center">Date Joined</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                            <tr>
+                                                    <td colspan="5"  class="text-white" valign="top">No data available in table</td>
+                                                </tr>
+                                                                                                                             
+                                        </tbody>                                       
+                                    </table>
+                                    <div class="card-footer text-right">
+                                                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="logoutModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Logout Notification</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"> 
+                            <div class="col-lg-12">
+                                <h5 class="text-black">Do you really wish to logout from GreeniumTrades ?</h5>
+                            </div>
+                            <div class="col-lg-12 mt-2">
+                                <form id="logout-modal">
+                                    <!-- <input type="hidden" name="_token" value="VElmUHzfyiAN5xvj9YXGYON0rGI0Cef7zJho0Md4">                       -->
+                                          <button class="btn btn-primary" type="submit">Log Me Out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2021 <a href="/dash-board">GreeniumTrades</a> All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jquery
+		============================================ -->
+    <script src="dashboard/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="dashboard/js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="dashboard/js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="dashboard/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="dashboard/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="dashboard/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="dashboard/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="dashboard/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="dashboard/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="dashboard/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="dashboard/js/metisMenu/metisMenu.min.js"></script>
+    <script src="dashboard/js/metisMenu/metisMenu-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="dashboard/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="dashboard/js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="dashboard/js/calendar/moment.min.js"></script>
+    <script src="dashboard/js/calendar/fullcalendar.min.js"></script>
+    <script src="dashboard/js/calendar/fullcalendar-active.js"></script>
+	<!-- float JS
+		============================================ -->
+    <script src="dashboard/js/flot/jquery.flot.js"></script>
+    <script src="dashboard/js/flot/jquery.flot.resize.js"></script>
+    <script src="dashboard/js/flot/curvedLines.js"></script>
+    <script src="dashboard/js/flot/flot-active.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="dashboard/js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="dashboard/js/main.js"></script>
+    <script src="backend/js/dashboard.js"></script>
+    <script src="backend/js/invest.js"></script>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/61d427d03d23fa26e870f1d8/1foibn1qn';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+</body>
+
+</html>
+
+
+
+
+

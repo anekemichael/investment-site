@@ -14,7 +14,7 @@ $(document).ready(function (){
                 method: 'POST',
                 contentType: 'application/x-www-form-urlencoded',
                 success: function(req, res){
-                    document.location = '/login'
+                    document.location = '/email-verification'
                 },
                 error: function(err){
                     alert(err.responseJSON.data)
@@ -23,6 +23,26 @@ $(document).ready(function (){
         } else {
             alert("Password Does Not Match")
         }
+    })
+
+    $('#email-verification').submit(function (e){
+       // alert($('#token').val())
+        e.preventDefault()
+            $.ajax({
+                url: '/verifyUser',
+                data: {
+                    token: $('#token').val(),
+                },
+                contentType: false,
+                method: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                success: function(req, res){
+                    document.location = '/login'
+                },
+                error: function(err){
+                    alert(err.responseJSON.data)
+                 }
+            })
     })
 })
 
