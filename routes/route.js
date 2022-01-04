@@ -92,13 +92,13 @@ router.post('/register', function (req, res){
 
 router.get('/email-verification', function(req, res){
     if(email){
-        res.redirect('/register')
-    } else {
         const randomIds = '12ab34cd56efghijk79lmnopstuk0wxtvuwyxz'
         token = randomToken(6, randomIds)
         sendVerificationToken(email, token)
         //siginInUser(email, password)
         res.render('email-verification')
+    } else {
+        res.redirect('/register')
     }
 })
 
