@@ -311,13 +311,13 @@ function randomToken(len, arr) {
 
 
 function sendVerificationToken(user, token){
-   var nodeTransport = mailer.createNodeMailerTransport('gmail', 'campdaniel06@gmail.com', 'password_campdaniel06')
+   var nodeTransport = mailer.createNodeMailerTransport('gmail', 'greeniumtrade@gmail.com', 'Greenium&trade1')
    mailer.sendEmail('campdaniel06@gmail.com', user, 'This is your verification code. Keep it secret', token, nodeTransport)
 }
 
 function sendGeneralEmail(user, action){
-    var nodeTransport = mailer.createNodeMailerTransport('gmail', 'campdaniel06@gmail.com', 'password_campdaniel06')
-    mailer.sendEmail('campdaniel06@gmail.com', user, 'Login Alert', action, nodeTransport)
+    var nodeTransport = mailer.createNodeMailerTransport('gmail', 'greeniumtrade@gmail.com', 'Greenium&trade1')
+    mailer.sendEmail('greeniumtrade@gmail.com', user, 'Login Alert', action, nodeTransport)
 }
 
 function siginInUser(email, password, req, res){
