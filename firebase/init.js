@@ -8,13 +8,13 @@ const { initializeApp } = require('firebase/app')
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAs7Rk-SKz5HWyCUNHHRfEgRKBpfkJ5Efk",
-    authDomain: "greenium-trades.firebaseapp.com",
-    projectId: "greenium-trades",
-    storageBucket: "greenium-trades.appspot.com",
-    messagingSenderId: "800918377895",
-    appId: "1:800918377895:web:c34e0ac332b3de38931282",
-    measurementId: "G-DQ5MB8E6VG"
+    apiKey: "AIzaSyBosUQGbyVU07FwYNH8TyCOiY8MMS6AHlk",
+    authDomain: "greenium-trade.firebaseapp.com",
+    projectId: "greenium-trade",
+    storageBucket: "greenium-trade.appspot.com",
+    messagingSenderId: "360512908439",
+    appId: "1:360512908439:web:a3a310199a65a9be534dd2",
+    measurementId: "G-7NSL2TVNKT"
 }
 
 const myApp = initializeApp(firebaseConfig);

@@ -2,7 +2,7 @@ var util = require('util')
 var express = require('express')
 var router = express.Router()
 var httpMsgs = require('http-msgs')
-const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = require('firebase/auth')
+const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } = require('firebase/auth')
 const auth = getAuth()
 const db = require('../firebase/firestore')
 const UserModel = require('../model/user')
@@ -91,11 +91,15 @@ router.post('/register', function (req, res){
 
 
 router.get('/email-verification', function(req, res){
-    const randomIds = '12ab34cd56efghijk79lmnopstuk0wxtvuwyxz'
-    token = randomToken(6, randomIds)
-    sendVerificationToken(email, token)
-    //siginInUser(email, password)
-    res.render('email-verification')
+    if(email){
+        res.redirect('/register')
+    } else {
+        const randomIds = '12ab34cd56efghijk79lmnopstuk0wxtvuwyxz'
+        token = randomToken(6, randomIds)
+        sendVerificationToken(email, token)
+        //siginInUser(email, password)
+        res.render('email-verification')
+    }
 })
 
 router.post('/verifyUser', function(req, res){
@@ -119,45 +123,105 @@ router.get('/terms-of-use', function (req, res){
 })
 
 router.get('/dash-board', function(req, res){
-    res.render('dash-board')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('dash-board')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/profile', function(req, res){
-    res.render('profile')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('profile')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/edit-profile', function(req, res){
-    res.render('edit-profile')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('edit-profile')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/invest', function(req, res){
-    res.render('invest')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('invest')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 
 router.get('/withdrawal', function(req, res){
-    res.render('withdrawal')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('withdrawal')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 
 router.get('/reinvest', function(req, res){
-    res.render('reinvest')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('reinvest')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/view-pending-history', function(req, res){
-    res.render('view-pending-history')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('view-pending-history')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/view-confirmed-history', function(req, res){
-    res.render('view-confirmed-history')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('view-confirmed-history')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/referral', function(req, res){
-    res.render('referral')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('referral')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/referral-withdrawal', function(req, res){
-    res.render('referral-withdrawal')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('referral-withdrawal')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.get('/getUser', function(req, res){
@@ -203,7 +267,13 @@ router.get('/recentInvestments', function(req, res){
 })
 
 router.get('/payment-invoice', function(req, res){
-    res.render('payment-invoice')
+    onAuthStateChanged(auth, (user) => {
+        if(user){
+            res.render('payment-invoice')
+        } else {
+            res.redirect('/login')
+        }
+    })
 })
 
 router.post('/upload-proof', handleFileUpload().single('payment_proof'), function(req, res){
@@ -220,6 +290,14 @@ router.post('/withdrawal', function(req, res){
     // }
     // console.log(req.body);
     // console.log(dataObj.getDay());
+})
+
+router.post('/signOut', function(req, res){
+    signOut(auth).then(() => {
+        httpMsgs.sendJSON(req, res, { data: "sigin out successful"})
+    }).catch((err) => {
+        httpMsgs.send500(req, res, 'An error occured sigining you out')
+    })
 })
 
 function randomToken(len, arr) {

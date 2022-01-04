@@ -39,7 +39,21 @@ $.ajax({
     }
 })
 
-
+$('#logout-modal').submit(function (e){
+    e.preventDefault()
+    $.ajax({
+        url: '/signOut',
+        data: {},
+        contentType: false,
+        method: 'POST',
+        success: function(req, res, data){
+            document.location = '/login'
+        },
+        error: function(err){
+            alert(err.responseJSON.data)
+        }
+    })
+})
 
 
 function setData(data){
