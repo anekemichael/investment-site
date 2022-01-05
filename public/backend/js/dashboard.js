@@ -22,7 +22,7 @@ $.ajax({
         console.log(data.responseJSON);
     },
     error: function(err){
-        alert(err.responseJSON.data)
+        console.log(err.responseJSON.data)
     }
 })
 

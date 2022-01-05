@@ -312,7 +312,7 @@ function randomToken(len, arr) {
 
 function sendVerificationToken(user, token){
    var nodeTransport = mailer.createNodeMailerTransport('gmail', 'greeniumtrade@gmail.com', 'Greenium&trade1')
-   mailer.sendEmail('campdaniel06@gmail.com', user, 'This is your verification code. Keep it secret', token, nodeTransport)
+   mailer.sendEmail('greeniumtrade@gmail.com', user, 'This is your verification code. Keep it secret', token, nodeTransport)
 }
 
 function sendGeneralEmail(user, action){
