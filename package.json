@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "investment-site",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "crypto Currency Investment Site",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

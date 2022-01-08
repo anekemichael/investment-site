@@ -2818,3 +2818,14 @@ select:focus {
       left: 0px;
       top: -70px;
       max-width: 800px; }
+
+       .img-circular{
+        width: 400px;
+        height: 400px;
+        background-image: url('../images/used/owner.jpg');
+        background-size: cover;
+        display: block;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+       }
