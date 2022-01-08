@@ -73,20 +73,21 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <!-- <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
+                <strong><img src="img/logo/logosn.png" alt="" /></strong> -->
+                <p></p>
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2 id="username"><span class="min-dtn"></span></h2>
+					<!-- <a href="#"><img src="img/notification/4.jpg" alt="" /></a> -->
+					<!-- <h2 id="username"><span class="min-dtn"></span></h2> -->
 				</div>
 				<div class="profile-social-dtl">
-					<ul class="dtl-social">
+					<!-- <ul class="dtl-social">
 						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -195,42 +196,36 @@
                                                                         <img src="img/contact/1.jpg" alt="">
                                                                     </div>
                                                                     <div class="message-content">
-                                                                        <span class="message-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
+                                                                        
+                                                                        <h2 id="user-name"></h2>
+                                                                        <p id="notification"></p>
                                                                     </div>
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                        <div class="message-view">
+                                                        <!-- <div class="message-view">
                                                             <a href="#">View All Messages</a>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </li>
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                    <div role="menu" class="notification-author dropdown-menu animated zoomIn">
-                                                        <div class="notification-single-top">
-                                                            <h1>Notifications</h1>
-                                                        </div>
-                                                        <ul class="notification-menu">
-                                                            <li>
-                                                                <a href="#">
-                                                                    <div class="notification-icon">
-                                                                        <i class="icon nalika-tick" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="notification-content">
-                                                                        <span class="notification-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>                                                      
-                                                        </ul>
-                                                        <div class="notification-view">
-                                                            <a href="#">View All Notification</a>
-                                                        </div>
-                                                    </div>
-                                                </li>      
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>    
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
                                                 </li>
                                             </ul>
                                         </div>
@@ -309,7 +304,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
 											<div class="breadcomb-icon">
-                                                <i class="fa fa-home"></i>									
+                                                <a href="/">
+                                                    <i class="fa fa-home"></i>									
+                                                </a>
                                             		</div>
 											<div class="breadcomb-ctn">
 												<h2>Dashboard</h2>
@@ -362,28 +359,29 @@
                         <ul id="myTab3" class="tab-review-design">
                             <li class="active"><a href="#description"> Basic Settings</a></li>
                             <li><a href="#reviews"> Account Settings</a></li>
-                            <li><a href="#INFORMATION"> Review</a></li>
+                            <li><a href="#INFORMATION"> Security Settings</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content custom-product-edit">
                             <div class="product-tab-list tab-pane fade active in" id="description">
+                                <form id="user-basic-info-form">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="review-content-section">
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="First Name">
+                                                <input type="text"  id="first-name"  class="form-control" placeholder="First Name" required>
                                             </div>
-                                            <div class="input-group mg-b-pro-edt">
+                                            <!-- <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Email">
-                                            </div>
+                                                <input type="text"   id="email-field" class="form-control" placeholder="Email">
+                                            </div> -->
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Gender">
+                                                <input type="text" id="gender" class="form-control" placeholder="Gender" required>
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Phone">
+                                                <input type="text"  id="phone" class="form-control" placeholder="Phone" required>
                                             </div>
                                         </div>
                                     </div>
@@ -391,18 +389,18 @@
                                         <div class="review-content-section">
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Last Name">
+                                                <input type="text" id="last-name" class="form-control" placeholder="Last Name" required>
                                             </div>
                                             <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Address">
+                                                <input type="text"  id="address"  class="form-control" placeholder="Address" required>
                                             </div>
                                             
-                                            <div class="input-group mg-b-pro-edt">
+                                            <!-- <div class="input-group mg-b-pro-edt">
                                                 <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Referral Code">
-                                            </div>
-                                            <select name="select" class="form-control pro-edt-select form-control-primary">
+                                                <input type="text" class="form-control" placeholder="Referral Code" disabled value="oooo">
+                                            </div> -->
+                                            <select  id="country-select" name="select" class="form-control pro-edt-select form-control-primary">
                                                 <option  value="Afghanistan">Select Country...</option>
                                                 <option  value="Afghanistan">Afghanistan</option>
                                                 <option  value="Albania">Albania</option>
@@ -650,15 +648,17 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="text-center custom-pro-edt-ds">
-                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
+                                            <button type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
                                                 </button>
-                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Discard
+                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light" id="discard-button">Discard
                                                 </button>
                                         </div>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                             <div class="product-tab-list tab-pane fade" id="reviews">
+                                <form id="account-settings-form">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="row">
@@ -666,15 +666,15 @@
                                                 <div class="review-content-section">
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Bank Name">
+                                                        <input type="text" id="bank-name" class="form-control" placeholder="Bank Name">
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Account Name">
+                                                        <input type="text" id="account-name" class="form-control" placeholder="Account Name">
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Account Number">
+                                                        <input type="text"  id="account-number" class="form-control" placeholder="Account Number">
                                                     </div>
                                                 </div>
                                             </div>
@@ -682,16 +682,16 @@
                                                 <div class="review-content-section">
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="BitCoin Wallet Address">
+                                                        <input type="text" id="btc-wallet" class="form-control" placeholder="BitCoin Wallet Address" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Etheru Wallet Address">
+                                                        <input type="text" id="eth-wallet" class="form-control" placeholder="Etherum Wallet Address">
                                                     </div>
                                                     
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="USDT Wallet">
+                                                        <input type="text" id="usdt-wallet" class="form-control" placeholder="USDT Wallet">
                                                     </div>
                                                    
                                                 </div>
@@ -702,16 +702,18 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="text-center custom-pro-edt-ds">
-                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
+                                            <button type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save
                                                 </button>
                                             <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Discard
                                                 </button>
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                                         
                             <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                <form id="security-form">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
@@ -719,15 +721,15 @@
                                             
                                                 <div class="input-group mg-b-15 mg-t-15">
                                                     <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Current Password">
+                                                    <input type="password" id="current-password" class="form-control" placeholder="Current Password" required>
                                                 </div>
                                                 <div class="input-group mg-b-15">
                                                     <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="New Password">
+                                                    <input type="password" id="new-password" class="form-control" placeholder="New Password" required>
                                                 </div>
                                                 <div class="input-group mg-b-15">
                                                     <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Confirm Password">
+                                                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirm Password" required>
                                                 </div>
                                                 <div class="form-group review-pro-edt mg-b-0-pt">
                                                     <button type="submit" class="btn btn-ctl-bt waves-effect waves-light">Submit
@@ -737,6 +739,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

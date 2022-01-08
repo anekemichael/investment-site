@@ -12,6 +12,7 @@ const { getAnalytics } = require('firebase/analytics')
 var port = process.env.PORT || 8080
 var app = express()
 const route = require('./routes/route')
+var cronJobs = require('./routes/helpers/cron-jobs')
 
 
 app.use(flash())
@@ -24,6 +25,6 @@ app.use('/', route)
 app.set('view engine', 'ejs')
 
 app.listen(port, () => {
-   console.log("my app: $s", myApp);
    console.log("Node server is runing in $s", port)
 })
+

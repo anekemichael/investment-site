@@ -8,7 +8,8 @@ $(document).ready(function (){
                     name: $('#full-name').val(),
                     email: $('#email').val(),
                     password: $('#password').val(),
-                    password_confirm: $('#confirm_password').val()
+                    password_confirm: $('#confirm_password').val(),
+                    referralCode: $("#referralCode").val()
                 },
                 contentType: false,
                 method: 'POST',

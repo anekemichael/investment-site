@@ -72,20 +72,20 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <!-- <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
+                <strong><img src="img/logo/logosn.png" alt="" /></strong> -->
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2 id="username"><span class="min-dtn"></span></h2>
+					<!-- <a href="#"><img src="img/notification/4.jpg" alt="" /></a>
+					<h2 id="username"><span class="min-dtn"></span></h2> -->
 				</div>
 				<div class="profile-social-dtl">
-					<ul class="dtl-social">
+					<!-- <ul class="dtl-social">
 						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -193,42 +193,36 @@
                                                                         <img src="img/contact/1.jpg" alt="">
                                                                     </div>
                                                                     <div class="message-content">
-                                                                        <span class="message-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
+                                                                        
+                                                                        <h2 id="user-name"></h2>
+                                                                        <p id="notification"></p>
                                                                     </div>
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                        <div class="message-view">
+                                                        <!-- <div class="message-view">
                                                             <a href="#">View All Messages</a>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </li>
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                    <div role="menu" class="notification-author dropdown-menu animated zoomIn">
-                                                        <div class="notification-single-top">
-                                                            <h1>Notifications</h1>
-                                                        </div>
-                                                        <ul class="notification-menu">
-                                                            <li>
-                                                                <a href="#">
-                                                                    <div class="notification-icon">
-                                                                        <i class="icon nalika-tick" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="notification-content">
-                                                                        <span class="notification-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>                                                      
-                                                        </ul>
-                                                        <div class="notification-view">
-                                                            <a href="#">View All Notification</a>
-                                                        </div>
-                                                    </div>
-                                                </li>      
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>    
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
                                                 </li>
                                             </ul>
                                         </div>
@@ -306,7 +300,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
 											<div class="breadcomb-icon">
-                                                <i class="fa fa-home"></i>									
+                                                <a href="/">
+                                                    <i class="fa fa-home"></i>									
+                                                </a>
                                             		</div>
 											<div class="breadcomb-ctn">
 												<h2>Profile</h2>
@@ -331,7 +327,7 @@
                                 <ul class="mailbox-list">
                                     <li class="active">
                                         <a>
-												<span class="pull-right">https://www.greeniumtrades.com?12345</span>
+												<span class="pull-right" id="referral-link"></span>
 												 Referral Link
 											</a>
                                     </li>
@@ -355,19 +351,25 @@
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="address"></span>
 
                                             Address</a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="country"></span>
+
+                                            Country</a>
+                                    </li>
+                                    <li>
+                                        <a> 
+                                            <span class="pull-right" id="phone"></span>
 
                                             Phone Number</a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="gender"></span>
 
                                             Gender</a>
                                     </li>
@@ -376,16 +378,16 @@
                                 <ul class="mailbox-list">
                                     <li>
                                         <a>  
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="bank-name"></span>
                                             Bank Name</a>
                                     </li>
                                     <li>
-                                        <a> <span class="pull-right">None Provided</span>
+                                        <a> <span class="pull-right" id="account-name"></span>
                                             Account Name</a>
                                     </li>
                                     <li>
                                         <a> 
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="account-number"></span>
                                             Account Number</a>
                                     </li>
                                 </ul>
@@ -393,23 +395,23 @@
                                 <ul class="mailbox-list">
                                     <li>
                                         <a> 
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="btc-wallet"></span>
 
                                             Bitcoin Wallet Address</a>
                                     </li>
                                     <li>
                                         <a>
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="eth-wallet"></span>
                                             Etherum Wallet Address</a>
                                     </li>
                                     <li>
                                         <a>
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="usdt-wallet"></span>
                                             USDT Wallet</a>
                                     </li>
                                     <li>
                                         <a>
-                                            <span class="pull-right">None Provided</span>
+                                            <span class="pull-right" id="bnb-wallet"></span>
                                             BNB Wallet Address</a>
                                     </li>
                                 </ul>

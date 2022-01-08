@@ -1,6 +1,6 @@
-const { getFirestore } = require('firebase/firestore')
+const { getFirestore, where } = require('firebase/firestore')
 const db = getFirestore()
-const { collection, doc, addDoc, setDoc, updateDoc, getDoc, getDocs, onSnapshot } = require('firebase/firestore')
+const { collection, doc, addDoc, setDoc, updateDoc, getDoc, getDocs, onSnapshot, query } = require('firebase/firestore')
 var httpMsgs = require('http-msgs')
 
 
@@ -11,6 +11,36 @@ function getUid(){
 async function addUserToFireStore(uid, data){
    return await setDoc(doc(db, 'users', uid), data)
 }
+
+async function updateUserBasicInfo(uid, fullName, gender, address, country, phone){
+    var docRef = doc(db, 'users', uid)
+    return await updateDoc(docRef, { 
+       fullName: fullName,
+       gender: gender,
+       address: address,
+       country: country,
+       phone: phone
+     })
+}
+
+async function updateAccountInfo(uid, bankName, accountName, accountNumber, btcWallet, ethWallet, usdtWallet) {
+    var docRef = doc(db, 'users', uid)
+    return await updateDoc(docRef, {
+        bankName: bankName,
+        accountName: accountName,
+        accountNumber: accountNumber, 
+        btcWallet: btcWallet,
+        etherumWallet: ethWallet,
+        usdt: usdtWallet
+    })
+}
+
+
+async function updateUserPassword(uid, password) {
+    var docRef = doc(db, 'users', uid)
+    return await updateDoc(docRef, { password: password })
+}
+
 
 
 async function getUserFromFireStore(uid, req, res){
@@ -23,6 +53,11 @@ async function getUserFromFireStore(uid, req, res){
             httpMsgs.sendJSON(req, res, ref.data())
         }
     })
+}
+
+async function getUserData(uid) {
+    var docRef = doc(db, 'users', uid)
+    return await getDoc(docRef)
 }
 
 async function getUserInvesmentPlan(uid, req, res){
@@ -66,12 +101,15 @@ async function updateInvestmentPaln(uid, investmentProof){
 }
 
 async function getInvestmentPlan(investmentId){
-    // onSnapshot(doc(db, 'investment', uid), (document) => {
-    //     httpMsgs.sendJSON(req, res, document.data())
-    // })
     var docRef = doc(db, 'investment', investmentId)
     return await getDoc(docRef)
 }
+
+// async function listenForInvestmentDocumentChange(res, uid) {
+//     onSnapshot(doc(db, 'investment', uid), (document) => {
+//        res.redirect('/dash-board')
+//     })
+// }
 
 async function createRecentInvestmentCollection(uid, data){
     var docRef = doc(db, 'users', uid)
@@ -90,10 +128,37 @@ async function getRecentInvestments(uid){
     return investments
 }
 
-async function withdrawFunds(uid){
-
+async function getAllActiveInvestmentPlan(){
+    var activeInvestments = query(collection(db, 'investment'), where('investmentStatus', '==', true))
+    return await getDocs(activeInvestments)
 }
 
+async function updateActiveInvestmentIntrest(investmentId, intrest){
+    var docRef = doc(db, 'investment', investmentId)
+    await updateDoc(docRef, {btcBalance: intrest})
+}
+
+// async function withdrawFunds(investmentId, ){
+//    var docRef = doc(db, 'investment', investmentId)
+   
+// }
+
+async function createWithdrawalCollection(uid, data){
+    var docRef = doc(db, 'users', uid)
+    return await addDoc(collection(db, docRef.path + "/" + "recent_withdrawal"), data);
+}
+
+async function getAllWithdrawalCollection(uid){
+    var docRef = doc(db, 'users', uid)
+    var withdrawals = []
+    var withdrawalsDocRef = await getDocs(collection(db, docRef.path + "/" + "recent_withdrawal"))
+    withdrawalsDocRef.forEach((doc) => {
+        withdrawals.push({
+            data: doc.data()
+        })
+    })
+    return withdrawals
+}
 module.exports = {
     addUserToFireStore: addUserToFireStore,
     getUserFromFireStore: getUserFromFireStore,
@@ -103,5 +168,14 @@ module.exports = {
     getUserInvesmentPlan: getUserInvesmentPlan,
     createRecentInvestmentCollection: createRecentInvestmentCollection,
     getRecentInvestments: getRecentInvestments,
-    updateInvestmentPaln: updateInvestmentPaln
+    updateInvestmentPaln: updateInvestmentPaln,
+    getAllActiveInvestmentPlan: getAllActiveInvestmentPlan,
+    updateActiveInvestmentIntrest: updateActiveInvestmentIntrest,
+    createWithdrawalCollection: createWithdrawalCollection,
+    getAllWithdrawalCollection: getAllWithdrawalCollection,
+    updateUserBasicInfo: updateUserBasicInfo,
+    updateAccountInfo: updateAccountInfo,
+    updateUserPassword: updateUserPassword,
+    getUserData: getUserData,
+    // listenForInvestmentDocumentChange: listenForInvestmentDocumentChange
 }

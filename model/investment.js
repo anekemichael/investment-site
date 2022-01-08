@@ -1,3 +1,4 @@
+const { status } = require('express/lib/response')
 const fireStoreHelper = require('../firebase/firestore')
 
 class InvestmentModel {
@@ -34,20 +35,29 @@ class InvestmentModel {
         }
     }
 
-    recentInvestment(sn, action, plan, amount, dayCounter, coinValue, coinType, status){
+    recentInvestment(action, plan, amount, coinType, status, createdAt){
         return {
-            sn: sn,
             action: action,
             plan: plan,
             amount: amount,
-            dayCounter: dayCounter,
-            coinValue: coinValue,
             coinType: coinType,
-            status: status
+            status: status,
+            createdAt: createdAt
+        }
+    }
+
+    recentWithdrawal(action, amount, calculatedAmount, status, coinType, settlementStatus, createdAt){
+        return {
+            action: action,
+            amount: amount,
+            calculatedAmount: calculatedAmount, 
+            status: status,
+            coinType: coinType,
+            settlementStatus: settlementStatus,
+            createdAt: createdAt
         }
     }
 }
-
 
 
 module.exports = InvestmentModel

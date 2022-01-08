@@ -60,20 +60,19 @@ $(document).ready(function (){
             })
     })
 
-
     $('#create-withdrawal-invoice').submit(function (e){
         e.preventDefault()
-            var form = document.querySelector('#create-withdrawal-invoice')
-            var data = new FormData(form)
             $.ajax({
                 url: '/withdrawal',
-                data: data,
-                cache: false,
+                data: {
+                    walletType: $('#wallet').val(),
+                    amount: $('#withdrawal-amount').val()
+                },
                 contentType: false,
-                processData: false,
                 method: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
                 success: function(req, res){
-                    //document.location = '/withdrawal-invoice'
+                    document.location = '/dash-board'
                 },
                 error: function(err){
                     alert(err.responseJSON.data)
@@ -81,4 +80,21 @@ $(document).ready(function (){
             })
     })
 
+    $('#withdrawal-form').submit(function (e){
+        e.preventDefault()
+            $.ajax({
+                url: '/withdrawal',
+                data: {
+                    amount: $('#amount').val()
+                },
+                contentType: 'application/x-www-form-urlencoded',
+                method: 'POST',
+                success: function(req, res){
+                    document.location = '/dash-board'
+                },
+                error: function(err){
+                    alert(err.responseJSON.data)
+                }
+            })
+    })
 })

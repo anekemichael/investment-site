@@ -3,7 +3,7 @@ class userModel{
         referralCode, country, emailAddress,
         isEmailVerified, password, bankName,
         accountName, accountNumber, btcWallet, 
-        etherumWallet, usdt, bnbWallet) {
+        etherumWallet, usdt, bnbWallet, inviteeReferralCode, phone) {
             this.uid = uid,
             this.investmentId = investmentId
             this.fullName = fullName
@@ -21,6 +21,8 @@ class userModel{
             this.etherumWallet = etherumWallet
             this.usdt = usdt
             this.bnbWallet = bnbWallet
+            this.inviteeReferralCode = inviteeReferralCode
+            this.phone = phone
         }
 
         toMap(){
@@ -41,7 +43,9 @@ class userModel{
                 btcWallet : this.btcWallet,
                 etherumWallet : this.etherumWallet,
                 usdt : this.usdt,
-                bnbWallet : this.bnbWallet
+                bnbWallet : this.bnbWallet,
+                inviteeReferralCode: this.inviteeReferralCode,
+                phone: this.phone
             }
         }
 }

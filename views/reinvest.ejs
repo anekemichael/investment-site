@@ -73,20 +73,20 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <!-- <a href="/"><img class="main-logo" src="logo.png" alt="" /></a>
+                <strong><img src="img/logo/logosn.png" alt="" /></strong> -->
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2 id="username"><span class="min-dtn"></span></h2>
+					<!-- <a href="#"><img src="img/notification/4.jpg" alt="" /></a>
+					<h2 id="username"><span class="min-dtn"></span></h2> -->
 				</div>
 				<div class="profile-social-dtl">
-					<ul class="dtl-social">
+					<!-- <ul class="dtl-social">
 						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -194,42 +194,36 @@
                                                                         <img src="img/contact/1.jpg" alt="">
                                                                     </div>
                                                                     <div class="message-content">
-                                                                        <span class="message-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
+                                                                        
+                                                                        <h2 id="user-name"></h2>
+                                                                        <p id="notification"></p>
                                                                     </div>
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                        <div class="message-view">
+                                                        <!-- <div class="message-view">
                                                             <a href="#">View All Messages</a>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </li>
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                    <div role="menu" class="notification-author dropdown-menu animated zoomIn">
-                                                        <div class="notification-single-top">
-                                                            <h1>Notifications</h1>
-                                                        </div>
-                                                        <ul class="notification-menu">
-                                                            <li>
-                                                                <a href="#">
-                                                                    <div class="notification-icon">
-                                                                        <i class="icon nalika-tick" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="notification-content">
-                                                                        <span class="notification-date">16 Sept</span>
-                                                                        <h2>Advanda Cro</h2>
-                                                                        <p>Please done this project as soon possible.</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>                                                      
-                                                        </ul>
-                                                        <div class="notification-view">
-                                                            <a href="#">View All Notification</a>
-                                                        </div>
-                                                    </div>
-                                                </li>      
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>    
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"></a>
+                                                   
+                                                </li>
                                                 </li>
                                             </ul>
                                         </div>
@@ -307,8 +301,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
 											<div class="breadcomb-icon">
-                                                <i class="fa fa-home"></i>									
-                                            		</div>
+                                                <a href="/">
+                                                    <i class="fa fa-home"></i>									
+                                                </a>                                            		</div>
 											<div class="breadcomb-ctn">
 												<h2>Invest</h2>
 												<p>Welcome <strong id="username-top"></strong></p>
@@ -333,7 +328,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="" class="table ">
+                                    <table id="investment-plan-table" class="table ">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">S/N</th>
@@ -342,29 +337,15 @@
                                                 <th class="text-center">Plan</th>
                                                 <th class="text-center">Amount($)</th>
                                                 <th class="text-center">Calculated Amount($)</th>
-                                                <th class="text-center">Day Counter</th>
-                                                <th class="text-center">Coin Value</th>
                                                 <th class="text-center">Coin Type</th>
+                                                <th class="text-center">Created At</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                                                                                                                                                        <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-center">
-                                                        <button class="btn btn-primary" data-toggle="modal" data-target="#planUpgradeHEWaDT6e3c41c4ffec1dca54">Upgrade</button>
-                                                    </td>		
-                                                    <td class="text-center">
-                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#withdrawHEWaDT6e3c41c4ffec1dca54">Withdraw</button>
-                                                    </td>	
-                                                    <td class="text-center">STARTER PLAN</td>
-                                                    <td class="text-center">699</td>
-                                                    <td class="text-center">699</td>
-                                                    <td class="text-center">0</td>
-                                                    <td class="text-center">165.663</td>
-                                                    <td class="text-center">BTC</td> 				
-                                                </tr> 
+                                            <tr id="empty_reinvest_state"><td colspan="11" class="text-center">No Data Available at this Moment</td></tr>
+   
                                                  <!-- Modal -->
-                                                 <div class="modal fade" id="planUpgradeHEWaDT6e3c41c4ffec1dca54">
+                                                 <div class="modal fade" id="planUpgrade">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -377,7 +358,7 @@
                                                                         <p class="text-black">You are about upgrading you current investment plan, <br> <b>Note!</b> your investment duration won't be affected by this. You interest rate will change based on the amount are adding.</p>
                                                                     </div>
                                                                     <div class="col-lg-12 mt-2">
-                                                                        <a href="/upgrade-plan" class="btn btn-primary" type="submit">Procced</a>
+                                                                        <a href="/invest" class="btn btn-primary" type="submit">Procced</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -385,7 +366,7 @@
                                                     </div>
                                                 </div>
                                                  <!-- Modal -->
-                                                 <div class="modal fade" id="withdrawHEWaDT6e3c41c4ffec1dca54">
+                                                 <div class="modal fade" id="withdrawalModal">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -398,7 +379,7 @@
                                                                         <p class="text-black">You Investment is still running and it's unwise to place/intiate a withdrawal at this time. <br><b>Note!</b> You will be charged a service fee of 30% from your Capital</p>
                                                                     </div>
                                                                     <div class="col-lg-12 mt-2">
-                                                                        <a href="/withdraw-funds" class="btn btn-primary" type="submit">Procced</a>
+                                                                        <a href="/withdrawal-invoice" class="btn btn-primary" type="submit">Procced</a>
                                                                     </div>
                                                                 </div>
                                                             </div>

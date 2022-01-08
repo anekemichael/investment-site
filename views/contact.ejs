@@ -105,9 +105,7 @@
 										<li class="nav-item">
 											<a class="nav-link" href="/affiliate">Affiliate</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="plan.html">Plans</a>
-										</li>
+										
 										<li class="nav-item">
 											<a class="nav-link" href="/services">Services</a>
 										</li>
@@ -180,8 +178,9 @@
 				<div class="col-lg-8">
 					<div class="contact-form-wrapper">
 						<h4 class="title">Drop us a Line</h4>
-						<form action="https://www.GreeniumTrades.com/contact-mail" method="POST">
-							<input type="hidden" name="_token" value="9mNZddQFbLBxHJ6c43e4NtxK5vqyvggo6DhcBrIB">							<div class="row">
+						<form  id="contact-form">
+							<!-- <input type="hidden" name="_token" value="9mNZddQFbLBxHJ6c43e4NtxK5vqyvggo6DhcBrIB">							 -->
+							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label for="name">Name :</label>
@@ -196,8 +195,8 @@
 								</div>
 								<div class="col-lg-12">
 									<div class="form-group">
-										<label for="subjict">Subjict :</label>
-										<input type="text" class="input-field" id="subjict" name="subjict" placeholder="Write Your Subjict" required>
+										<label for="subjict">Subject :</label>
+										<input type="text" class="input-field" id="subject" name="subject" placeholder="Write Your Subject" required>
 									</div>
 								</div>
 								<div class="col-lg-12">
@@ -455,9 +454,7 @@
                 <div class="footer-widget info-link-widget">
                     <h4 class="title titles">Legal Info </h4>
                     <ul class="link-list">
-                                                    <li>
-                                <a href="plan.html"><i class="fas fa-angle-double-right"></i>Plans</a>
-                            </li>
+                              
                             <li>
                                 <a href="/services"><i class="fas fa-angle-double-right"></i>Services</a>
                             </li>
@@ -496,6 +493,8 @@
 <script src="frontend/assets/js/plugin.js"></script>
 <!-- main -->
 <script src="frontend/assets/js/main.js"></script>
+<script src="frontend/assets/js/function.js"></script>
+
 
 <script type="text/javascript">
 	function googleTranslateElementInit() {
