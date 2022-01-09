@@ -29,6 +29,10 @@ router.get('/about', function (req, res){
     res.render('about')
 })
 
+router.get('/loans', function (req, res){
+    res.render('loans')
+})
+
 router.get('/affiliate', function (req, res){
     res.render('affiliate')
 })
